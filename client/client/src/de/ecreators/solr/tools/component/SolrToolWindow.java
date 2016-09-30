@@ -1,5 +1,6 @@
-package de.ecreators.solr.tools;
+package de.ecreators.solr.tools.component;
 
+import de.ecreators.solr.tools.SolrTools;
 import de.ecreators.solr.tools.model.CancelHandler;
 
 import javax.swing.*;
@@ -59,7 +60,7 @@ public class SolrToolWindow extends JFrame {
                 
                 @Override
                 public Component getListCellRendererComponent(JList<? extends SolrTools.SolrTool<?>> list, SolrTools.SolrTool<?> value, int index, boolean isSelected, boolean cellHasFocus) {
-                    return defaultRenderer.getListCellRendererComponent(list, value.getModel().getTitle(), index, isSelected, cellHasFocus);
+                    return new ToolItemUI((JLabel) defaultRenderer.getListCellRendererComponent(list, value.getModel().getTitle(), index, isSelected, cellHasFocus));
                 }
             });
         }

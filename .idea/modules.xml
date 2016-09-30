@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/solrTools.iml" filepath="$PROJECT_DIR$/.idea/solrTools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solrTools.iml" filepath="$PROJECT_DIR$/solrTools.iml" />
     </modules>
   </component>
 </project>

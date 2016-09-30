@@ -1,5 +1,6 @@
 package de.ecreators.solr.tools;
 
+import de.ecreators.solr.tools.component.SolrToolWindow;
 import de.ecreators.solr.tools.model.CancelHandler;
 import de.ecreators.solr.tools.model.IListenerEvent;
 import de.ecreators.solr.tools.model.ListenerEvent;
