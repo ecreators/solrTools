@@ -1,3 +1,7 @@
+import model.CancelHandler;
+import model.IListenerEvent;
+import model.ListenerEvent;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -11,9 +15,18 @@ public class SolrTools implements Iterable<SolrTools.SolrTool<?>> {
     
     private Parameters parameters;
     private final Map<String, SolrTool<?>> tools;
+    private final ListenerEvent<CancelHandler<SolrTool<?>>> activeDetailsEvent;
+    private SolrTool<?> activeDetail;
     
     public SolrTools() {
         tools = new HashMap<>();
+        activeDetailsEvent = new ListenerEvent<>();
+        activeDetail = null;
+    }
+    
+    public void setActiveDetail(SolrTool<?> activeDetail) {
+        this.activeDetail = activeDetail;
+        activeDetailsEvent.getListeners().forEach(h -> h.invoke(new CancelHandler.CancelArgs<>(activeDetail)));
     }
     
     public static void main(String[] args) {
@@ -48,6 +61,10 @@ public class SolrTools implements Iterable<SolrTools.SolrTool<?>> {
     @Override
     public Iterator<SolrTool<?>> iterator() {
         return tools.values().iterator();
+    }
+    
+    public IListenerEvent<CancelHandler<SolrTool<?>>> getActiveDetailsEvent() {
+        return activeDetailsEvent;
     }
     
     public static abstract class SolrTool<TModel> {
@@ -87,8 +104,8 @@ public class SolrTools implements Iterable<SolrTools.SolrTool<?>> {
         protected final TModel getDataContextModel() {
             return model.getDataContextModel();
         }
-        
-        private static final class ToolModel<T> {
+    
+        public static final class ToolModel<T> {
             
             private final String title;
             private final String description;
