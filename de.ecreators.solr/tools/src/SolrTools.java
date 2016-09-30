@@ -19,11 +19,11 @@ public class SolrTools implements Iterable<SolrTools.SolrTool<?>> {
     public static void main(String[] args) {
         SolrTools application = new SolrTools();
         application.addTool("create new collection", new SolrCreateTool());
-        application.addTool("edit data-schema.xml", new SolrEditFieldsTool());
-        application.addTool("edit schema.xml", new SolrEditFieldsTool());
-        application.addTool("edit solrconfig.xml", new SolrEditConfigTool());
-        application.addTool("edit bin/solr init", new SolrCoreTool());
-        application.addTool("view in browser", new SolrWebTool());
+//        application.addTool("edit data-schema.xml", new SolrEditFieldsTool());
+//        application.addTool("edit schema.xml", new SolrEditFieldsTool());
+//        application.addTool("edit solrconfig.xml", new SolrEditConfigTool());
+//        application.addTool("edit bin/solr init", new SolrCoreTool());
+//        application.addTool("view in browser", new SolrWebTool());
         application.run(args);
     }
     
