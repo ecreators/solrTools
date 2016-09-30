@@ -8,14 +8,14 @@ import java.util.Map;
  * @author Bjoern Frohberg, mydata GmbH
  */
 public class SolrTools implements Iterable<SolrTools.SolrTool<?>> {
-    
-    private Parameters parameters;
+
+    private       Parameters               parameters;
     private final Map<String, SolrTool<?>> tools;
-    
+
     public SolrTools() {
         tools = new HashMap<>();
     }
-    
+
     public static void main(String[] args) {
         SolrTools application = new SolrTools();
         application.addTool("create new collection", new SolrCreateTool());
@@ -26,37 +26,38 @@ public class SolrTools implements Iterable<SolrTools.SolrTool<?>> {
 //        application.addTool("view in browser", new SolrWebTool());
         application.run(args);
     }
-    
+
     private void addTool(String key, SolrTool<?> tool) {
         tools.put(key, tool);
     }
-    
+
     private void run(String[] args) {
         parameters = new Parameters(args);
-        
+
         JFrame window = new SolrToolWindow(this);
-        
+
+        window.setPreferredSize(new Dimension(1024, 768));
         showCentered(window);
     }
-    
+
     private void showCentered(JFrame window) {
         window.pack();
         window.setLocationRelativeTo(null);
         window.setVisible(true);
     }
-    
+
     @Override
     public Iterator<SolrTool<?>> iterator() {
         return tools.values().iterator();
     }
-    
+
     public static abstract class SolrTool<TModel> {
-        
-        private final JPanel viewContainer;
-        private final JScrollPane view;
+
+        private final JPanel            viewContainer;
+        private final JScrollPane       view;
         private final ToolModel<TModel> model;
-        private final GridBagLayout layout;
-        
+        private final GridBagLayout     layout;
+
         public SolrTool(String title, String description, ImageIcon icon) {
             this.model = new ToolModel<>(title, description, icon);
             layout = new GridBagLayout();
@@ -65,68 +66,68 @@ public class SolrTools implements Iterable<SolrTools.SolrTool<?>> {
             this.view = new JScrollPane(viewContainer = new JPanel(layout));
             initializeTool(layout, viewContainer);
         }
-        
+
         protected abstract void initializeTool(GridBagLayout layout, Container containerToAddYourView);
-        
+
         protected final GridBagLayout getLayout() {
             return layout;
         }
-        
+
         protected final JPanel getViewContainer() {
             return viewContainer;
         }
-        
+
         public final JScrollPane getView() {
             return view;
         }
-        
+
         public final ToolModel<TModel> getModel() {
             return model;
         }
-        
+
         protected final TModel getDataContextModel() {
             return model.getDataContextModel();
         }
-        
+
         private static final class ToolModel<T> {
-            
-            private final String title;
-            private final String description;
+
+            private final String    title;
+            private final String    description;
             private final ImageIcon icon;
-            private T dataContextModel;
-            
+            private       T         dataContextModel;
+
             public ToolModel(String title, String description, ImageIcon icon) {
                 this.title = title;
                 this.description = description;
                 this.icon = icon;
             }
-            
+
             public T getDataContextModel() {
                 return dataContextModel;
             }
-            
+
             public void setDataContextModel(T dataContextModel) {
                 this.dataContextModel = dataContextModel;
             }
-            
+
             public String getTitle() {
                 return title;
             }
-            
+
             public String getDescription() {
                 return description;
             }
-            
+
             public ImageIcon getIcon() {
                 return icon;
             }
         }
     }
-    
+
     private class Parameters {
-        
+
         public Parameters(String[] args) {
-            
+
         }
     }
 }
