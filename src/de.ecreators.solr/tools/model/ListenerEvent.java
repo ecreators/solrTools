@@ -1,4 +1,4 @@
-package model;
+package de.ecreators.solr.tools.model;
 
 import java.util.Collection;
 import java.util.Collections;

@@ -1,6 +1,8 @@
-import model.CancelHandler;
-import model.IListenerEvent;
-import model.ListenerEvent;
+package de.ecreators.solr.tools;
+
+import de.ecreators.solr.tools.model.CancelHandler;
+import de.ecreators.solr.tools.model.IListenerEvent;
+import de.ecreators.solr.tools.model.ListenerEvent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,17 +48,11 @@ public class SolrTools implements Iterable<SolrTools.SolrTool<?>> {
 
     private void run(String[] args) {
         parameters = new Parameters(args);
-
-        JFrame window = new SolrToolWindow(this);
+    
+        SolrToolWindow window = new SolrToolWindow(this);
 
         window.setPreferredSize(new Dimension(1024, 768));
-        showCentered(window);
-    }
-
-    private void showCentered(JFrame window) {
-        window.pack();
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
+        window.show(SolrToolWindow.WindowStyle.FULLSCREEN);
     }
 
     @Override

@@ -1,4 +1,6 @@
-import model.CancelHandler;
+package de.ecreators.solr.tools;
+
+import de.ecreators.solr.tools.model.CancelHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,13 +14,32 @@ public class SolrToolWindow extends JFrame {
     public SolrToolWindow(SolrTools tools) {
         setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
+        
         // TODO add tools as Collection on left
         // TODO each clickable to show its content on right
         // TODO add toolbar to exit, start, restart stop solr application
         getContentPane().setLayout(new BorderLayout(5, 5));
-        getContentPane().add(new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, new JNavigationPanel(tools), new JDetailsPanel(tools)),
-                             BorderLayout.CENTER);
+        getContentPane().add(new CustomSplitPane(new JNavigationPanel(tools), new JDetailsPanel(tools)), BorderLayout.CENTER);
+    }
+    
+    public void setWindowsStyle(WindowStyle windowStyle) {
+        switch (windowStyle) {
+            case FULLSCREEN:
+                setLocation(new Point(0, 0));
+                setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+                break;
+        }
+    }
+    
+    public void show(WindowStyle windowStyle) {
+        pack();
+        setLocationRelativeTo(null);
+        setWindowsStyle(windowStyle);
+        setVisible(true);
+    }
+    
+    public enum WindowStyle {
+        FULLSCREEN
     }
     
     private static class JNavigationPanel extends JScrollPane {

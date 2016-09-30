@@ -1,3 +1,5 @@
+package de.ecreators.solr.tools;
+
 import java.awt.*;
 
 /**
@@ -11,6 +13,6 @@ public class SolrCreateTool extends SolrTools.SolrTool<Object> {
     
     @Override
     protected void initializeTool(GridBagLayout layout, Container containerToAddYourView) {
-        // create model and ui and add ui to container
+        // create de.ecreators.solr.tools.model and ui and add ui to container
     }
 }
