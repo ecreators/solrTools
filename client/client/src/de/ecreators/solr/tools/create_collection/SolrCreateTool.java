@@ -1,15 +1,26 @@
-package de.ecreators.solr.tools;
+package de.ecreators.solr.tools.create_collection;
 
-import javax.swing.*;
+import de.ecreators.solr.tools.SolrTools;
+
 import java.awt.*;
 
 /**
+ * Der Controller für Create
+ *
  * @author Bjoern Frohberg, mydata GmbH
  */
 public class SolrCreateTool extends SolrTools.SolrTool<Object> {
     
     public SolrCreateTool() {
         super("Neue Collection", "Erstellt oder löscht eine Collection, die solr indizieren und durchsuchen kann", null);
+    
+        /* THEMA:
+         * Anlegen einer neuen Kollection mit Namen
+         *
+         * Solr muss entpackt sein
+         * Java muss 1.8 sein (für die Sitzung reicht das aus)
+         * Solr muss gestartet sein
+         */
     }
     
     @Override
@@ -20,13 +31,4 @@ public class SolrCreateTool extends SolrTools.SolrTool<Object> {
         containerToAddYourView.add(new SolrCreateUI(), gbc);
     }
     
-    private static final class SolrCreateUI extends JPanel {
-        
-        public SolrCreateUI() {
-            setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-            
-            add(new JLabel("Test 1"));
-            add(new JLabel("Test 2"));
-        }
-    }
 }
