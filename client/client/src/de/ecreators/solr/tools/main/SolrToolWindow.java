@@ -1,6 +1,11 @@
-package de.ecreators.solr.tools;
+package de.ecreators.solr.tools.main;
+
+import de.ecreators.solr.tools.api.model.CancelHandler;
+import de.ecreators.solr.tools.component.CustomSplitPane;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.util.Vector;
 
@@ -46,20 +51,29 @@ public class SolrToolWindow extends JFrame {
         private final JList<SolrTools.SolrTool<?>> list;
         
         public JNavigationPanel(SolrTools tools) {
-            super(new JList<SolrTools.SolrTool<?>>(toList(tools)), VERTICAL_SCROLLBAR_AS_NEEDED, HORIZONTAL_SCROLLBAR_NEVER);
+            super(new JList<>(toList(tools)), VERTICAL_SCROLLBAR_AS_NEEDED, HORIZONTAL_SCROLLBAR_NEVER);
+            setBorder(BorderFactory.createMatteBorder(1, 0, 0, 1, Color.GRAY));
+            
             this.tools = tools;
             Component scrollContent = getViewport().getComponent(0);
             //noinspection unchecked
             this.list = (JList<SolrTools.SolrTool<?>>) scrollContent;
-            list.setCellRenderer(new ListCellRenderer<SolrTools.SolrTool<?>>() {
-                
-                private final DefaultListCellRenderer defaultRenderer = new DefaultListCellRenderer();
-                
+            list.setCellRenderer(new NavigationListItemRenderer());
+            list.addListSelectionListener(new ListSelectionListener() {
                 @Override
-                public Component getListCellRendererComponent(JList<? extends SolrTools.SolrTool<?>> list, SolrTools.SolrTool<?> value, int index, boolean isSelected, boolean cellHasFocus) {
-                    return defaultRenderer.getListCellRendererComponent(list, value.getModel().getTitle(), index, isSelected, cellHasFocus);
+                public void valueChanged(ListSelectionEvent e) {
+                    if(!e.getValueIsAdjusting()) {
+                        tools.setActiveDetail(list.getSelectedValue());
+                    }
                 }
             });
+            
+            // Die Liste soll bedienbar sein über die Tastatur:
+            // - focus Liste
+            // - erstes Tool vorabwählen
+            
+            list.requestFocusInWindow();
+            list.setSelectedIndex(0);
         }
         
         private static Vector<SolrTools.SolrTool<?>> toList(SolrTools tools) {
@@ -69,6 +83,7 @@ public class SolrToolWindow extends JFrame {
             }
             return list;
         }
+    
     }
     
     private class JDetailsPanel extends JScrollPane {
@@ -78,6 +93,7 @@ public class SolrToolWindow extends JFrame {
         
         public JDetailsPanel(SolrTools tools) {
             super(new JPanel(new BorderLayout()), VERTICAL_SCROLLBAR_AS_NEEDED, HORIZONTAL_SCROLLBAR_NEVER);
+            setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.GRAY));
             this.tools = tools;
             this.presenterPanel = (Container) getViewport().getComponent(0);
             tools.getActiveDetailsEvent().addListener(this::onActiveDetailsChanged);
@@ -85,10 +101,15 @@ public class SolrToolWindow extends JFrame {
         
         private void onActiveDetailsChanged(CancelHandler.CancelArgs<SolrTools.SolrTool<?>> e) {
             presenterPanel.removeAll();
-            presenterPanel.add(e.getDataContext().getView());
+            SolrTools.SolrTool<?> dataContext = e.getDataContext();
+            if(dataContext != null) {
+                JScrollPane view = dataContext.getView();
+                view.setBorder(null);
+                presenterPanel.add(view);
+            }
             presenterPanel.setPreferredSize(null);
             presenterPanel.revalidate();
-            presenterPanel.invalidate();
+            presenterPanel.repaint();
         }
     }
 }

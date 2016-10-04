@@ -18,7 +18,7 @@ public class CustomSplitPane extends JPanel {
         add(right, gbc(1, 0, GridBagConstraints.BOTH));
     }
     
-    private static GridBagConstraints gbc(int x, int y, int fill) {
+    public static GridBagConstraints gbc(int x, int y, int fill) {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = x;
         gbc.gridy = y;

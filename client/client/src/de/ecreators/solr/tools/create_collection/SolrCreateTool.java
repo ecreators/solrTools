@@ -1,6 +1,7 @@
 package de.ecreators.solr.tools.create_collection;
 
-import de.ecreators.solr.tools.SolrTools;
+import de.ecreators.solr.tools.api.utils.MyStringUtils;
+import de.ecreators.solr.tools.main.SolrTools;
 
 import java.awt.*;
 
@@ -12,7 +13,9 @@ import java.awt.*;
 public class SolrCreateTool extends SolrTools.SolrTool<Object> {
     
     public SolrCreateTool() {
-        super("Neue Collection", "Erstellt oder löscht eine Collection, die solr indizieren und durchsuchen kann", null);
+        super("Collections", "Erstellt oder löscht eine Collection, die solr indizieren und durchsuchen kann",
+              null,
+              MyStringUtils.format(true, "Verwalten von{0}Collections", System.lineSeparator()));
     
         /* THEMA:
          * Anlegen einer neuen Kollection mit Namen
@@ -25,7 +28,7 @@ public class SolrCreateTool extends SolrTools.SolrTool<Object> {
     
     @Override
     protected void initializeTool(GridBagLayout layout, Container containerToAddYourView) {
-        // create de.ecreators.solr.tools.model and ui and add ui to container
+        // create de.ecreators.solr.tools.api.model and ui and add ui to container
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         containerToAddYourView.add(new SolrCreateUI(), gbc);
