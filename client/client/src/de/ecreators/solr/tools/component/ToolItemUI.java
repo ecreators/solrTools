@@ -13,9 +13,9 @@ import static de.ecreators.solr.tools.component.CustomSplitPane.gbc;
  */
 public final class ToolItemUI extends JPanel {
     
-    private final SolrTools.SolrTool<?> model;
     private final ListSelectionHandler listSelectionHandler;
-    
+    private final SolrTools.SolrTool<?> model;
+
     public ToolItemUI(SolrTools.SolrTool<?> model, boolean selected, Color background, Font font) {
         
         GridBagLayout gbLayout = new GridBagLayout();
