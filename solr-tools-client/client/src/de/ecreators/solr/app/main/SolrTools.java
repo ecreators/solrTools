@@ -1,9 +1,9 @@
-package de.ecreators.solr.tools.main;
+package de.ecreators.solr.app.main;
 
-import de.ecreators.solr.tools.api.model.CancelHandler;
-import de.ecreators.solr.tools.api.model.IListenerEvent;
-import de.ecreators.solr.tools.api.model.ListenerEvent;
-import de.ecreators.solr.tools.create_collection.SolrCreateTool;
+import de.ecreators.solr.api.model.CancelHandler;
+import de.ecreators.solr.api.model.IListenerEvent;
+import de.ecreators.solr.api.model.ListenerEvent;
+import de.ecreators.solr.app.tools.create_collection.SolrCreateTool;
 
 import javax.swing.*;
 import java.awt.*;

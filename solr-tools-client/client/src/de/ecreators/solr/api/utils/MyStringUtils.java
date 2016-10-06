@@ -1,4 +1,4 @@
-package de.ecreators.solr.tools.api.utils;
+package de.ecreators.solr.api.utils;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;

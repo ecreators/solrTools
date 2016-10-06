@@ -1,7 +1,7 @@
-package de.ecreators.solr.tools.main;
+package de.ecreators.solr.app.main;
 
-import de.ecreators.solr.tools.api.model.CancelHandler;
-import de.ecreators.solr.tools.component.CustomSplitPane;
+import de.ecreators.solr.api.model.CancelHandler;
+import de.ecreators.solr.component.CustomSplitPane;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;

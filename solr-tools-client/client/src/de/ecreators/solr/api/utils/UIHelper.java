@@ -1,4 +1,4 @@
-package de.ecreators.solr.tools.api.utils;
+package de.ecreators.solr.api.utils;
 
 import javax.swing.*;
 import java.awt.*;

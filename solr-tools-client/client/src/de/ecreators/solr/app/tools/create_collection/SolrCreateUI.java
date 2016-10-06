@@ -1,4 +1,4 @@
-package de.ecreators.solr.tools.create_collection;
+package de.ecreators.solr.app.tools.create_collection;
 
 import javax.swing.*;
 

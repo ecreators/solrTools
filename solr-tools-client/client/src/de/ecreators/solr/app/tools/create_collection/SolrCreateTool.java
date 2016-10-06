@@ -1,7 +1,7 @@
-package de.ecreators.solr.tools.create_collection;
+package de.ecreators.solr.app.tools.create_collection;
 
-import de.ecreators.solr.tools.api.utils.MyStringUtils;
-import de.ecreators.solr.tools.main.SolrTools;
+import de.ecreators.solr.api.utils.MyStringUtils;
+import de.ecreators.solr.app.main.SolrTools;
 
 import java.awt.*;
 

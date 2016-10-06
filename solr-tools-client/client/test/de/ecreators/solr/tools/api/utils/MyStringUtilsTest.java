@@ -1,5 +1,6 @@
 package de.ecreators.solr.tools.api.utils;
 
+import de.ecreators.solr.api.utils.MyStringUtils;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.*;

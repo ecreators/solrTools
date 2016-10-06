@@ -1,6 +1,6 @@
-package de.ecreators.solr.tools.component;
+package de.ecreators.solr.component;
 
-import de.ecreators.solr.tools.api.utils.StrategyHandler;
+import de.ecreators.solr.api.utils.StrategyHandler;
 
 import javax.swing.*;
 import java.awt.*;

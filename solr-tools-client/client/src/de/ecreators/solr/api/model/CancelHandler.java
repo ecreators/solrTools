@@ -1,4 +1,4 @@
-package de.ecreators.solr.tools.api.model;
+package de.ecreators.solr.api.model;
 
 /**
  * @author Bjoern Frohberg, mydata GmbH

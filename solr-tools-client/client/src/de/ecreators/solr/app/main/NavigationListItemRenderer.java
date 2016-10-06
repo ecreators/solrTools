@@ -1,6 +1,6 @@
-package de.ecreators.solr.tools.main;
+package de.ecreators.solr.app.main;
 
-import de.ecreators.solr.tools.component.ToolItemUI;
+import de.ecreators.solr.component.ToolItemUI;
 
 import javax.swing.*;
 import java.awt.*;
