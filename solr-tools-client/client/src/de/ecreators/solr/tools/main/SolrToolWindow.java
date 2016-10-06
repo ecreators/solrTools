@@ -22,7 +22,13 @@ public class SolrToolWindow extends JFrame {
         // TODO each clickable to show its content on right
         // TODO add toolbar to exit, start, restart stop solr application
         getContentPane().setLayout(new BorderLayout(5, 5));
-        getContentPane().add(new CustomSplitPane(new JNavigationPanel(tools), new JDetailsPanel(tools)), BorderLayout.CENTER);
+        
+        JNavigationPanel left = new JNavigationPanel(tools);
+        JDetailsPanel right = new JDetailsPanel(tools);
+        getContentPane().add(new CustomSplitPane(left, right), BorderLayout.CENTER);
+        
+        // Den ersten Zustand abrufen: erst jetzt sind die Listener an Tools!
+        left.notifySelectedTool();
     }
     
     public void setWindowsStyle(WindowStyle windowStyle) {
@@ -63,7 +69,7 @@ public class SolrToolWindow extends JFrame {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     if(!e.getValueIsAdjusting()) {
-                        tools.setActiveDetail(list.getSelectedValue());
+                        notifySelectedTool();
                     }
                 }
             });
@@ -84,6 +90,9 @@ public class SolrToolWindow extends JFrame {
             return list;
         }
     
+        public void notifySelectedTool() {
+            tools.setActiveDetail(list.getSelectedValue());
+        }
     }
     
     private class JDetailsPanel extends JScrollPane {
