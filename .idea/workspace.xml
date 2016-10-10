@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1c07cc6b-ad70-4880-be46-8a0c17b8939a" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/component/CustomSplitPane.java" afterPath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/api/component/CustomSplitPane.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/component/ListSelectionHandler.java" afterPath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/api/component/ListSelectionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/component/MultilineLabel.java" afterPath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/api/component/MultilineLabel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/component/ToolItemUI.java" afterPath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/api/component/ToolItemUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/app/main/NavigationListItemRenderer.java" afterPath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/app/main/NavigationListItemRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/app/main/SolrToolWindow.java" afterPath="$PROJECT_DIR$/solr-tools-client/client/src/de/ecreators/solr/app/main/SolrToolWindow.java" />
     </list>
     <list id="47b3a208-bba1-4240-8321-8f4b9d62f1b9" name="New changelist" comment="" />
     <ignored path="solrTools.iws" />
@@ -928,7 +922,7 @@
       <workItem from="1475731297004" duration="121000" />
       <workItem from="1475731433291" duration="611000" />
       <workItem from="1475994141212" duration="4000" />
-      <workItem from="1476075436629" duration="237000" />
+      <workItem from="1476075436629" duration="258000" />
     </task>
     <task id="LOCAL-00001" summary="initial intelliJ project java 1.8 sdk">
       <created>1475219097393</created>
@@ -1028,7 +1022,14 @@
       <option name="project" value="LOCAL" />
       <updated>1475731738656</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="strukturelle Änderungen">
+      <created>1476075684137</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1476075684137</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers>
       <GitHub shared="false" url="https://github.com">
         <option name="assignedIssuesOnly" value="false" />
@@ -1081,7 +1082,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26974000" />
+    <option name="totallyTimeSpent" value="26995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1220,7 +1221,7 @@
         <state relative-caret-position="1782">
           <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1287,7 +1288,7 @@
         <state relative-caret-position="1452">
           <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1446,7 +1447,7 @@
         <state relative-caret-position="550">
           <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
