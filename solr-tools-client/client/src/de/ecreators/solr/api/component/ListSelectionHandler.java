@@ -1,4 +1,4 @@
-package de.ecreators.solr.component;
+package de.ecreators.solr.api.component;
 
 import de.ecreators.solr.api.utils.StrategyHandler;
 

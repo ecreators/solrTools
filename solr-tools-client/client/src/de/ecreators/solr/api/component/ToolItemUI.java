@@ -1,4 +1,4 @@
-package de.ecreators.solr.component;
+package de.ecreators.solr.api.component;
 
 import de.ecreators.solr.api.utils.UIHelper;
 import de.ecreators.solr.app.main.SolrTools;
@@ -6,7 +6,7 @@ import de.ecreators.solr.app.main.SolrTools;
 import javax.swing.*;
 import java.awt.*;
 
-import static de.ecreators.solr.component.CustomSplitPane.gbc;
+import static de.ecreators.solr.api.component.CustomSplitPane.gbc;
 
 /**
  * @author Bjoern Frohberg, mydata GmbH
